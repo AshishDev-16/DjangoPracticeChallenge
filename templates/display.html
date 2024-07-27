@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV Data</title>
+    <style>
+        *{
+            background-color:#9df9ef;
+        }
+        .Heading{
+        text-align:center;
+        overflow:hidden;
+        }
+        .Heading h1{
+        font-size: 3em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1em;
+            font-family: Arial, sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr {
+            background-color: #f9f9f9;
+        }
+        tr:nth-of-type(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="Heading">
+    <h1>CSV Data</h1>
+    <h2>Data Analysis</h2>
+    <p>Total Movies: {{ total_movies }}</p>
+    <p>Average Number of Votes: {{ average_number_votes }}</p>
+    <p>Min Votes: {{ min_votes }}</p>
+    <p>Max Votes: {{ max_votes }}</p>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                {% for column in header %}
+                    <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+                <tr>
+                    {% for item in row %}
+                        <td>{{ item }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
