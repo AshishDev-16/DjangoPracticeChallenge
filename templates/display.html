@@ -4,7 +4,7 @@
     <title>CSV Data</title>
     <style>
         *{
-            background-color:#9df9ef;
+            background-color:#6482AD;
         }
         .Heading{
         text-align:center;
@@ -43,6 +43,7 @@
     </style>
 </head>
 <body>
+    <h2>Devloped By <span style="color:#fff; text-shadow:2px 2px black;">Ashish Kadu</span></h2>
     <div class="Heading">
     <h1>CSV Data</h1>
     <h2>Data Analysis</h2>
@@ -51,7 +52,7 @@
     <p>Min Votes: {{ min_votes }}</p>
     <p>Max Votes: {{ max_votes }}</p>
     </div>
-    <table>
+    {% comment %} <table>
         <thead>
             <tr>
                 {% for column in header %}
@@ -68,6 +69,20 @@
                 </tr>
             {% endfor %}
         </tbody>
+    </table> {% endcomment %}
+    <h2>Number of Movies Released Each Year</h2>
+    <table border="1">
+        <tr>
+            <th>Year</th>
+            <th>Number of Movies</th>
+        </tr>
+        {% for year, count in movies_per_year.items %}
+        <tr>
+            <td>{{ year }}</td>
+            <td>{{ count }}</td>
+        </tr>
+        {% endfor %}
     </table>
+
 </body>
 </html>
